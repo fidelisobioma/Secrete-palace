@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Log in</title>
+  </head>
+  <body>
+    <header><%- include('navbar') %></header>
+    <main>
+      <div class="sign_container">
+        <h1><%=title%></h1>
+        <div>
+          <form action="/login" method="POST">
+            <input
+              type="text"
+              name="username"
+              placeholder="Username"
+              required
+            />
+            <br /><br />
+            <input
+              type="password"
+              name="password"
+              placeholder="Password"
+              required
+            />
+            <br />
+            <br />
+            <button type="submit">Log in</button>
+            <p>First time here? <a href="/signup">Sign up</a></p>
+          </form>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

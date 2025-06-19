@@ -1,0 +1,199 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #222222;
+}
+nav .logo a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: bold;
+  font-style: italic;
+}
+nav .logo a span {
+  font-size: 2rem;
+  color: rgb(107, 5, 56);
+  font-style: normal;
+}
+nav ul li {
+  /* margin: 0 15px; */
+  padding: 10px;
+}
+nav ul li a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 1rem;
+}
+
+nav {
+  background-color: #222222;
+  /* background-color: antiquewhite; */
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+nav ul li a:hover {
+  background-color: #e9ecef;
+  color: rgb(107, 5, 56);
+}
+nav ul li.active a {
+  background-color: rgb(107, 5, 56);
+  color: #fff;
+}
+nav ul li.active a:hover {
+  background-color: rgb(107, 5, 56);
+  color: #fff;
+}
+nav ul li a.active {
+  font-weight: bold;
+  color: rgb(107, 5, 56);
+}
+nav ul li a.active:hover {
+  color: rgb(107, 5, 56);
+}
+.nav-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+/* .nav-link {
+  position: relative;
+} */
+.menubar button {
+  padding: 5px 10px;
+  border-radius: 8px;
+  background-color: rgb(107, 5, 56);
+  color: #fff;
+}
+nav ul {
+  list-style-type: none;
+  width: 300px;
+  min-height: 100vh;
+  position: fixed;
+  top: -10px;
+  right: 0;
+  padding: 20px;
+  background-color: #222222;
+  /* background-color: red; */
+  z-index: 1000;
+  visibility: hidden;
+  transform: translateX(100%);
+  transition: transform 0.3s ease, visibility 0.3s;
+}
+
+.show-menu {
+  visibility: visible;
+  transform: translateX(0);
+}
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #000;
+}
+/* home page*/
+main {
+  padding: 0 20px;
+  /* background-color: #fff; */
+  /* min-height: calc(100vh - 80px); Adjust for nav height */
+}
+/*signup page*/
+/*.sign_container {
+  display: grid;
+  place-content: center;
+  min-height: calc(100vh - 80px);
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}*/
+
+.formcontainer {
+  max-width: 450px;
+  border-radius: 10px;
+  padding: 10px;
+  margin: auto;
+}
+.formcontainer h1,
+p {
+  color: #fff;
+}
+.formcontainer p a {
+  color: rgb(107, 5, 56);
+  /* text-decoration: none; */
+}
+form {
+  margin-top: 60px;
+}
+form div {
+  margin-top: 16px;
+}
+form label {
+  display: inline-block;
+  padding: 5px 0;
+  color: #fff;
+}
+form input {
+  width: 100%;
+  padding: 5px 0;
+  background-color: transparent;
+  color: #ccc;
+  border: none;
+  border-bottom: 1px solid grey;
+  outline: none;
+}
+select > option {
+  background-color: #222222;
+}
+form span {
+  color: red;
+  font-size: 0.8rem;
+}
+form button {
+  margin-top: 30px;
+  background-color: rgb(107, 5, 56);
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  cursor: pointer;
+  border-radius: 2px;
+}
+.error-container ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  color: red;
+}
+/* Responsive styles */
+@media (min-width: 769px) {
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .menubar {
+    display: none; /* Hide the menu icon on larger screens */
+  }
+  nav ul {
+    display: flex; /* Show the menu on larger screens */
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    position: static;
+    width: auto; /* Allow the menu to take its natural width */
+    min-height: auto; /* Remove the fixed height */
+    visibility: visible;
+    transform: translateX(0); /* Reset the transform */
+  }
+  nav .logo a {
+    font-size: 1.5rem;
+  }
+  .close-btn {
+    display: none; /* Hide the close button on larger screens */
+  }
+  nav ul li a {
+    padding: 10px 15px;
+    border-radius: 5px;
+  }
+}
