@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Secret palace</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <main class="main-container">
+        <% if(locals.loginUser && memberId !== null){%>
+        <div class="overlay">
+          <header class="dash-header">
+            <div class="logo">
+              <p>Secret<span>palace</span></p>
+            </div>
+            <div>
+              <div class="user">
+                <%=loginUser.username%>
+                <span>&#x25BC;</span>
+              </div>
+              <div class="drop-content">
+                <a href="/logout">Log out</a>
+              </div>
+            </div>
+          </header>
+          <div class="write-message">
+            <!-- <a href="/new-message">Write Ananymouse message</a> -->
+            <div class="new-message">
+              <div><button class="add_modal">Write message</button></div>
+              <div><button class="add_member">Become member</button></div>
+            </div>
+          </div>
+          <div class="message-container">
+            <% if(locals.usersdata){%> <% usersdata.map((data)=>{%>
+            <div class="message">
+              <p><%=data.content%></p>
+              <p><%=data.username%></p>
+              <p><%=data.sent_at%></p>
+            </div>
+            <%})}%>
+          </div>
+          <!--members-->
+
+          <!--message-->
+          <div class="textarea-container">
+            <form action="/new-message" method="POST">
+              <textarea
+                name="message"
+                placeholder="write ananymouse message"
+                rows="6"
+                cols="30"
+                required
+              ></textarea>
+              <br />
+              <button type="submit">Send</button>
+              <span class="remove_modal">cancel</span>
+            </form>
+          </div>
+          <!--BEcome a member-->
+          <div class="accessmember">
+            <form class="accesForm" action="/accessmember" method="POST">
+              <label for="member"
+                >Which year was JavaScript first introduced?</label
+              >
+              <div>
+                <input type="number" id="member" name="member" required />
+                <span class="membertext"></span>
+              </div>
+              <button type="submit">submit</button>
+              <span class="memberbtn">cancel</span>
+            </form>
+          </div>
+          <!--update message-->
+          <div class="updatetextarea">
+            <% if(locals.editMessage){editMessage.map((editmsg)=>{%>
+            <form action="/edit/<%=editmsg.id%>" method="POST">
+              <textarea name="message" rows="6" cols="30" required>
+ <%=editmsg.content%> </textarea
+              >
+              <br />
+              <button type="submit">Send</button>
+              <span class="">cancel</span>
+            </form>
+            <%})}%>
+          </div>
+        </div>
+        <%}else if(loginUser ){%>
+        <div class="overlay">
+          <header class="dash-header">
+            <div class="logo">
+              <p>Secret<span>palace</span></p>
+            </div>
+            <div>
+              <div class="user">
+                <%=loginUser.id%> <%=memberId%> <%=loginUser.username%>
+                <span>&#x25BC;</span>
+              </div>
+              <div class="drop-content">
+                <a href="/logout">Log out</a>
+              </div>
+            </div>
+          </header>
+          <div class="write-message">
+            <!-- <a href="/new-message">Write Ananymouse message</a> -->
+            <div class="new-message">
+              <div><button class="add_modal">Write message</button></div>
+              <div><button class="add_member">Become member</button></div>
+            </div>
+          </div>
+          <div class="message-container">
+            <% if(locals.usersdata){%> <% usersdata.map((data)=>{%>
+            <div class="message">
+              <p><%=data.content%></p>
+            </div>
+            <%})}%>
+          </div>
+          <!--members-->
+
+          <!--message-->
+          <div class="textarea-container">
+            <form action="/new-message" method="POST">
+              <textarea
+                name="message"
+                placeholder="write ananymouse message"
+                rows="6"
+                cols="30"
+                required
+              ></textarea>
+              <br />
+              <button type="submit">Send</button>
+              <span class="remove_modal">cancel</span>
+            </form>
+          </div>
+          <!--BEcome a member-->
+          <div class="accessmember">
+            <form class="accesForm" action="/accessmember" method="POST">
+              <label for="member"
+                >Which year was JavaScript first introduced?</label
+              >
+              <div>
+                <input type="number" id="member" name="member" required />
+                <span class="membertext"></span>
+              </div>
+              <button type="submit">submit</button>
+              <span class="memberbtn">cancel</span>
+            </form>
+          </div>
+          <!--update message-->
+          <div class="updatetextarea">
+            <% if(locals.editMessage){editMessage.map((editmsg)=>{%>
+            <form action="/edit/<%=editmsg.id%>" method="POST">
+              <textarea name="message" rows="6" cols="30" required>
+ <%=editmsg.content%> </textarea
+              >
+              <br />
+              <button type="submit">Send</button>
+              <span class="">cancel</span>
+            </form>
+            <%})}%>
+          </div>
+        </div>
+        <% } else{%> <%- include('navbar') %>
+        <div class="message-container">
+          <div class="write-message">
+            <a href="/login">Write Ananymouse message</a>
+          </div>
+          <% if(locals.usersdata){%> <% usersdata.map((data)=>{%>
+          <div class="message">
+            <p><%=data.content%></p>
+          </div>
+          <%})%>
+        </div>
+        <%}%> <%}%>
+      </main>
+    </div>
+
+    <script src="/dashboard.js"></script>
+  </body>
+</html>

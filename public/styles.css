@@ -4,14 +4,15 @@ body {
   font-family: Arial, sans-serif;
   background-color: #222222;
 }
-nav .logo a {
-  text-decoration: none;
+
+nav .logo p {
   color: #fff;
   font-size: 1.5rem;
   font-weight: bold;
   font-style: italic;
 }
-nav .logo a span {
+
+nav .logo p span {
   font-size: 2rem;
   color: rgb(107, 5, 56);
   font-style: normal;
@@ -29,7 +30,7 @@ nav ul li a {
 nav {
   background-color: #222222;
   /* background-color: antiquewhite; */
-  padding: 20px;
+  padding: 0 20px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
@@ -68,7 +69,7 @@ nav ul li a.active:hover {
 }
 nav ul {
   list-style-type: none;
-  width: 300px;
+  width: 200px;
   min-height: 100vh;
   position: fixed;
   top: -10px;
@@ -95,20 +96,88 @@ nav ul {
   color: #000;
 }
 /* home page*/
+.wrapper {
+  max-width: 1280px;
+  margin: auto;
+}
 main {
-  padding: 0 20px;
+  /* padding: 0 20px; */
   /* background-color: #fff; */
   /* min-height: calc(100vh - 80px); Adjust for nav height */
 }
-/*signup page*/
-/*.sign_container {
+.dash-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.dash-header .logo p {
+  font-size: 2rem;
+  color: rgb(107, 5, 56);
+  font-style: normal;
+  font-weight: bold;
+}
+.dash-header .logo p span {
+  color: #fff;
+  font-size: 1.5rem;
+  font-style: italic;
+}
+.user {
+  color: #fff;
+  cursor: pointer;
+}
+.add_modal {
+  cursor: pointer;
+}
+/* .dropdown {
+  cursor: pointer;
+} */
+.drop-content {
+  /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
+  border: 1px solid #ccc;
+  position: absolute;
+  right: 10px;
+  visibility: hidden;
+  padding: 10px;
+}
+.drop-content a {
+  text-decoration: none;
+  color: #fff;
+}
+.showcontent {
+  visibility: visible;
+}
+.write-message {
+  padding: 10px 20px;
+}
+.new-message {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.message-container {
   display: grid;
-  place-content: center;
-  min-height: calc(100vh - 80px);
-  box-sizing: border-box;
-  font-family: Arial, sans-serif;
-}*/
+  gap: 20px;
+  padding: 20px;
+}
+.message {
+  /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
+  border: 1px solid #808080;
+  padding: 10px;
+  /* margin: 20px 0; */
 
+  border-radius: 2px;
+}
+/* .drop-content a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 0.7rem;
+  font-weight: normal;
+  font-style: normal;
+  padding: 5px 10px;
+} */
+/*style form container*/
 .formcontainer {
   max-width: 450px;
   border-radius: 10px;
@@ -165,8 +234,47 @@ form button {
   margin: 0;
   color: red;
 }
+/*style textarea*/
+.overlay {
+  position: relative;
+}
+.textarea-container,
+.updatetextarea,
+.accessmember {
+  display: flex;
+  justify-content: center;
+  /* align-items: center; */
+  align-items: start;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.7);
+  right: 0;
+  left: 0;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: 1;
+  width: 100%;
+  min-height: 100vh;
+  visibility: hidden;
+}
+.displaymodal,
+.displaytextarea,
+.displaymemberform {
+  visibility: visible;
+}
+.textarea-container form,
+.updatetextarea form,
+.accessmember form {
+  background-color: #222222;
+  padding: 16px;
+  border-radius: 8px;
+}
+.remove_modal,
+.memberbtn {
+  cursor: pointer;
+}
 /* Responsive styles */
-@media (min-width: 769px) {
+@media (min-width: 768px) {
   nav {
     display: flex;
     justify-content: space-between;

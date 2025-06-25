@@ -4,34 +4,32 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Log in</title>
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <header><%- include('navbar') %></header>
-    <main>
-      <div class="sign_container">
-        <h1><%=title%></h1>
-        <div>
-          <form action="/login" method="POST">
-            <input
-              type="text"
-              name="username"
-              placeholder="Username"
-              required
-            />
-            <br /><br />
-            <input
-              type="password"
-              name="password"
-              placeholder="Password"
-              required
-            />
-            <br />
-            <br />
-            <button type="submit">Log in</button>
-            <p>First time here? <a href="/signup">Sign up</a></p>
-          </form>
+    <div class="wrapper">
+      <header><%- include('navbar') %></header>
+      <main>
+        <div class="formcontainer">
+          <h1><%=title%></h1>
+          <div>
+            <form action="/login" method="POST">
+              <div>
+                <label for="username">Username:</label>
+                <br />
+                <input type="text" name="username" id="username" required />
+              </div>
+
+              <div>
+                <label for="password">Password:</label>
+                <input type="password" name="password" id="password" required />
+              </div>
+              <p>First time here? <a href="/signup">Sign up</a></p>
+              <button type="submit">Log in</button>
+            </form>
+          </div>
         </div>
-      </div>
-    </main>
+      </main>
+    </div>
   </body>
 </html>
